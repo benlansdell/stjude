@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Causal inference algorithms for learning in neural networks </title>
+		<title>The neuronal credit assignment problem as causal inference</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -33,9 +33,9 @@
 			<div class="slides">
 
 				<section data-background="assets/brainbow2.jpg">
-					<h1>Causal inference algorithms for learning in neural networks </h1>
+					<h1>The neuronal credit assignment problem as causal inference</h1>
 				<hr>
-				<p style="text-align: center; font-size: larger; text-shadow: 0px 0px 0px #0000ff;">Ben Lansdell, Bioengineering UPenn<br><br>Rutgers-Newark Mathematics & Computer Science. February 5th 2020
+				<p style="text-align: center; font-size: larger; text-shadow: 0px 0px 0px #0000ff;">Ben Lansdell, Bioengineering UPenn<br><br>Western University. February 13th 2020
 				<aside class="notes">
 				  <span style="color: red">
 				  </span> •		  
@@ -165,7 +165,6 @@
 	<ol>
 		<li class="fragment highlight-green"> The neuronal credit assignment problem as causal inference
 		<li> Learning to solve the credit assignment problem
-		<li>Causal learning and decision making</li>
 	</ol>
 		<aside class="notes">
 	<span style="color: red"></span> •
@@ -566,7 +565,6 @@
 				  <ol>
 					<li> The neuronal credit assignment problem as causal inference
 					<li class="fragment highlight-green"> Learning to solve the credit assignment problem
-					<li>Causal learning and decision making</li>
 					</ol>
 				  <aside class="notes">
 				  <span style="color: red"></span> •
@@ -829,160 +827,6 @@
 					   We believe a combination of these two approaches: credit assignment through causal inference, and learning a feedback system can provide a plausible and scalable learning system that could be implemented in the brain.........
 				  • <span style="color: green"></span>
 				</aside>	</section>
-
-				<section data-background="assets/brainbow2.jpg">
-					<h2>Outline</h2>
-					<ol>
-						<li> The neuronal credit assignment problem as causal inference
-						<li> Learning to solve the credit assignment problem
-						<li class="fragment highlight-green">Causal learning and decision making</li>
-					</ol>
-						<aside class="notes">
-					<span style="color: red"></span> •
-					* For the bulk of this talk, the aim is to see how that plays out in one particular example in detail, in particular in a problem called the credit assignment problem
-					• <span style="color: green"></span>
-				  </aside>	</section>	  
-
-				<section data-background-color="#ffffff">
-					<h2>Causal learning and decision making</h2>
-					<div>
-					What is the effect of my actions, and how do I use this to maximize reward?
-					<!--Something of a combination between CI and RL. This requires thinking about causality in cases where we have limited ability to interact with or make changes in the world — we must combine what we learn from observation, taking actions to maximize reward, and taking actions to learn about the world.-->
-					</div>
-					<br>
-					If actions/experimentation is cheap/easy/etc<br><br>
-					<img src="assets/causalrl.svg" width="45%">
-						<aside class="notes">
-					<span style="color: red"></span> •
-					• <span style="color: green"></span>
-				  </aside>	</section>
-
-				  <section data-background-color="#ffffff">
-					<h2>Causal learning and decision making</h2>
-					<div>
-					What is the effect of my actions, and how do I use this to maximize reward?
-					</div><br>
-					If actions/experimentation is difficult/expensive/etc<br><br>
-					<img src="assets/causalrl_ol.svg" width="45%"><br><br>
-					<br>~Reinforcement learning + causal inference<br><br>
-					<aside class="notes">
-					<span style="color: red"></span> •
-					• <span style="color: green"></span>
-				  </aside>	</section>
-				  
-				  <section data-background-color="#ffffff">
-					<h2>Causal learning and decision making</h2>
-					<div>
-					What is the effect of my actions, and how do I use this to maximize reward?
-					</div>
-					<div id = "left"><br>
-					<ol>
-					<li style="color: red">Neuronal credit assignment problem</li>
-					<li>Conservative exploration</li>
-					<li>Combining observational learning with reinforcement learning</li>
-					</ol>
-					</div>
-					<div id = "right"><br>
-						<h5>BCIs as a testbed for credit assignment</h5>
-						<img src="assets/dualbci.png" width="85%">
-						<p class="rcred">Lansdell et al <em>IEEE Trans NSRE</em> 2020<br>
-							Aljadeff et al <em>Neuron</em> 2016<br>
-							Lansdell et al <em>PLoS Comp Biol.</em> 2014
-						</p>
-					</div>
-					<aside class="notes">
-					<span style="color: red"></span> •
-					• <span style="color: green"></span>
-				  </aside>	</section>
-				  
-				  <section data-background-color="#ffffff">
-					<h2>Causal learning and decision making</h2>
-					<div>
-					What is the effect of my actions, and how do I use this to maximize reward?
-					</div>
-					<div id = "left">
-					<br>
-					<ol>
-					<li>Neuronal credit assignment problem</li>
-					<li style = "color: red">Conservative exploration</li>
-					<li>Combining observational learning with reinforcement learning</li>
-					</ol>
-					</div>
-					<div id = "right"><br>
-						<h5>Thresholding policies allow conservative exploration in contextual multi-armed bandits</h5>
-						<img src="assets/bandits_intro_v2.svg" width="75%">
-						<p class="rcred">Lansdell, Triantafillou, and Kording 2020. <em>Submitted</em></p>
-					</div>
-					<aside class="notes">
-					<span style="color: red"></span> •
-					• <span style="color: green"></span>
-				  </aside>	</section>
-
-				<section data-background-color="#ffffff">
-					<h2>Causal learning and decision making</h2>
-					<div>
-					What is the effect of my actions, and how do I use this to maximize reward?
-					</div>
-					<div id = "left"><br>
-					<ol>
-					<li>Neuronal credit assignment problem</li>
-					<li>Conservative exploration</li>
-					<li style = "color: red">Combining observational learning with reinforcement learning</li>
-					</ol>
-					</div>
-					<div id = "right">
-						<br>
-						<h5>Meta-RL for observational causal learning</h5>
-						<p class="rcred">Lansdell <em>In preparation</em><br>
-						Lansdell, Kording. Curr. Opin. Behav. Sci. 2019</p>
-						<img src="assets/metarl_buttons.gif" width="40%">
-					</div>
-					<div style="clear: both">
-					<p style="text-align: center"></p>
-					</div>
-					<aside class="notes">
-					<span style="color: red"></span> •
-					• <span style="color: green"></span>
-				  </aside>	</section>
-
-				  <section data-background-color="#ffffff">
-					<h2>Causal learning and decision making</h2>
-					<div>
-					What is the effect of my actions, and how do I use this to maximize reward?
-					</div>
-					<div id = "left"><br>
-					<ol>
-					<li>Neuronal credit assignment problem</li>
-					<li>Conservative exploration</li>
-					<li>Combining observational learning with reinforcement learning</li>
-					</ol>
-					</div>
-					<div style="clear: both"><br>
-					<p style="text-align: center">Causal models can improve both ML and models of our own learning</p>
-					</div>
-					<aside class="notes">
-					<span style="color: red"></span> •
-					• <span style="color: green"></span>
-				  </aside>	</section>
-
-	<section data-background-image="./assets/brainbow2.jpg">
-		<h2>References</h2>
-			<hr>
-		<ul style="font-size: smaller">
-			<li> <b>Lansdell B</b>, Kording K, "Spiking allows neurons to estimate their causal effect" biorxiv 2019
-			<li> <b>Lansdell B</b>, Triantafilou S, Kording K "Rarely-switching linear bandits: causal effects optimization in the real world" arxiv 2019
-			<li> <b>Lansdell B</b>, Prakash P, Kording K, "Learning to solving the credit assignment problem" ICLR 2020, Addis Ababa, Ethiopia
-			<li> <b>Lansdell B</b>, Milovanovic I, Mellema C, Fairhall A, Fetz E, Moritz C, "Reconfiguring motor circuits for a joint manual and BCI task" IEEE Trans. Neural Systems and Rehabilitation Engineering, 2020, 28(1)
- 			<li><b>Lansdell B</b>, Kording K, "Towards learning-to-learn" Current Opinion in Behavioral Science, 2019, 29, 45-50
-			<li>Aljadeff Y, <b>Lansdell B</b>, Fairhall A, Kleinfeld D, "Analysis of neuronal spike trains, deconstructed", Neuron 2016, 91(2)
-			<li>Pang R, <b>Lansdell B</b>, Fairhall A, "Dimensionality Reduction in Neuroscience", Current Biology 2016, 26: R1-R5
-			<li><b>Lansdell B</b>, Ford K, Kutz J N, "A reaction-diffusion model of cholinergic retinal waves", PLoS Computational Biology, 2014, 10(12): e1003953
-		</ul>
-			<aside class="notes">
-		  <span style="color: red"></span> •
-		  • <span style="color: green"></span>
-		</aside>
-	  </section>
 
 			  <section data-background-image="./assets/brainbow2.jpg">
 				<h2>Acknowledgments</h2>
