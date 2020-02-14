@@ -39,6 +39,16 @@
 				<aside class="notes">
 				  <span style="color: red">
 				  </span> •		  
+
+				  Opening spiel:
+
+				  thank you for the invite, it's great to be here
+
+				  I'm going to be talking about work that sits somewhere at the intersection of computational neuroscience and machine learning. Hopefully, even for those not in the field, it gives some insight into the questions that do sit at this intersection, and why they're important...
+
+				  I'm going to discuss work that sits at the intersection somewhat between ML and neuroscience. 
+				  So before going into the project, I'd like to take a step back and set the work in a larger context.
+
 				  • <span style="color: green"></span>
 				</aside>
 				  </section>
@@ -47,7 +57,7 @@
 		  <!-- The overall introduction -->
 		  <!-- ---------------------------------------------------------------------- -->
 
-	  <section data-background="assets/brainbow2.jpg">
+	  <section>
 		<h2>Two complementary tasks to understand intelligence</h2>
 		<div>
 		<div id = "left">
@@ -73,7 +83,7 @@
 	  </aside>	</section>
 
 <!-- Slide about causality-->
-<section data-background="assets/brainbow2.jpg">
+<section>
 	<h2>Machine learning, neuroscience, and causality</h2>
 	<em>Causation</em> relates to a number of challenges in both machine learning and neuroscience
 	<div>
@@ -107,7 +117,7 @@
 	• <span style="color: green"></span>
   </aside>	</section>
 
-  <section data-background="assets/brainbow2.jpg">
+  <section>
 	<h2>Machine learning, neuroscience, and causality</h2>
 	<em>Causation</em> relates to a number of challenges in both machine learning and neuroscience
 	<div>
@@ -137,7 +147,7 @@
 	• <span style="color: green"></span>
   </aside>	</section>
 
-  <section data-background="assets/brainbow2.jpg">
+  <section>
 	<h2>Machine learning, neuroscience, and causality</h2>
 	<em>Causation</em> relates to a number of challenges in both machine learning and neuroscience
 	<div>
@@ -176,15 +186,50 @@
   		  <!-- --------------------------------------------- -->
 		  <!-- Credit assignment problem as causal inference -->
 		  <!-- --------------------------------------------- -->
+
+
+		  <section data-background="assets/brainbow.jpg">
+			<div>
+			</div>
+			<aside class="notes">
+			<span style="color: red"></span> •
+			• <span style="color: green"></span>
+		  </aside>	</section>
+
+		<!--  <section data-background-color="#ffffff">
+			<div>
+				<img src="assets/spiketrain2.svg" width="100%">
+				<ul>
+					<li>Neurons have a tree-like structure: dendrites (roots), soma (cell body), axon (trunk)
+					<li>Electrically exciteable -- spikes travel along the axon to the dendrites of other neurons
+					<li>Synapses -- connections between two neurons
+					</ul>
+			</div>
+			<aside class="notes">
+			<span style="color: red"></span> •
+			• <span style="color: green"></span>
+		  </aside>	</section>-->
+
+
 		  <section data-background-color="#ffffff">
-			<h2>Learning &ndash; improving performance over time</h2>
+			<h2>Learning in the brain</h2>
+			<div>
+				<img src="assets/plasticity.jpeg" width="80%">
+			</div>
+			<aside class="notes">
+			<span style="color: red"></span> •
+			• <span style="color: green"></span>
+		  </aside>	</section>	
+
+		  <section data-background-color="#ffffff">
+			<h2>Learning in the brain</h2>
 			<div>
 			<div>
 			  <img src="assets/losslandscape.svg" width="50%">
 			</div>
 		  </div>
 
-		  Find parameters $\theta$ that minimize a loss/maximize a reward function, $R$
+		  Find parameters $w$ that minimize a loss/maximize a reward function, $R$
 
 		  <aside class="notes">
 			<span style="color: red"></span> •
@@ -201,7 +246,7 @@
 				  <div>
 				  <div style="text-size: 40pt">
 					<br><br><br><br><br>
-					<img src="assets/weightupdates.gif" width="50%">
+					<img src="assets/plasticity2.gif" width="60%">
 					<br><br><br><br><br>
 				  </div>
 				</div>
@@ -213,12 +258,12 @@
 		  
 			  <section data-background-color="#ffffff">
 				<h2>The neuronal credit assignment problem</h2>
-				<p>To learn, a neuron must know its effect on the loss function</p><br>
+				<p>To learn, a neuron must know its effect on the reward function</p><br>
 				<img src="assets/spiketrain.svg" width="80%">
 				<p><br>In spiking neural networks, this means something like:</p>
 				<ul>
-					<li> If, for a given input, a spike <b>increases</b> the loss, the weights leading to that spike should <b>decrease</b>
-					<li> If, for a given input, a spike <b>decreases</b> the loss, the weights leading to that spike should <b>increase</b>
+					<li> If, for a given input, a spike <b>increases</b> the reward, the weights leading to that spike should <b>decrease</b>
+					<li> If, for a given input, a spike <b>decreases</b> the reward, the weights leading to that spike should <b>increase</b>
 				</ul>
 				</aside></section>
 		  
@@ -442,10 +487,10 @@
 				</aside>
 			  </section>
 		  
-			<!--  <section data-background-color='#ffffff'>
+			<section data-background-color='#ffffff'>
 				<h2>A larger example</h2>
 				<div>
-					<p>Loss function trains one neuron to have different firing rate from rest of population</p>
+					<p>Reward function trains one neuron to have different firing rate from rest of population</p>
 				<img src="assets/biofeedback2.svg" width="45%">
 				<ul>
 					<li> Performance and learning curve independent of noise correlations
@@ -486,9 +531,9 @@
 		  
 				  • <span style="color: green"></span>
 				</aside>
-			  </section>-->
+			  </section>
 
-			<!--  <section data-background-color='#ffffff'>
+			<section data-background-color='#ffffff'>
 				<h2>Is this plausible?</h2>
 					<ul> <li> It would require:
 						<ul>
@@ -497,9 +542,9 @@
 					</ul>
 				<img src="assets/fig5a.svg" width="55%">
 				<p class="rcred">Ngezahayo et al 2000, Seol et al 2007</p>
-					<!-- <ul class="fragment">
+					<!--<ul class="fragment">
 						<li> Additionally would predict super-threshold dependent plasticity
-					</ul>
+					</ul>-->
 		
 			  <aside class="notes">
 				<span style="color: red"></span> •
@@ -510,7 +555,7 @@
 				Thus both aspects are largely consistent with neurobiology. 
 				• <span style="color: green"></span>
 			  </aside>
-			</section>-->
+			</section>
 
 			<section>
 				<h2>Why spike?</h2>
@@ -519,12 +564,12 @@
 					</ul>
 					<div class = "fragment">
 					<video class="slideautostart" src="assets/chris_paper_S1.ogv" muted controls loop autoplay
-					poster="assets/CorticalFOV.png" width="50%">
+					poster="assets/CorticalFOV.png" width="45%">
 					</video>
-					<p class="rcred">Calcium imaging in Hyrda. Dupre and Yuste 2018</p>
+					<p class="rcred">Calcium imaging in Hydra. Dupre and Yuste 2017</p>
 					</div>
 					<ul class = "fragment">
-					<li> Computationally, a spiking discontinuity is inconvenient for learning
+					<li> But computationally, a spiking discontinuity is inconvenient for learning
 					<li> What are the comptuational benefits of spiking? 
 					<li class="fragment"> With RDD-based learning, spiking is a feature and not a bug
 				</ul>
@@ -572,13 +617,14 @@
 			  </aside></section>	  
 					  
 			  <section data-background-color="#ffffff">
-				<h2>Learning rules that scale to larger problems</h2>
+				<h2>How to scale to large problems?</h2>
 				<div>
 				<img src="assets/learningrules.png" width="60%">
 				<p class="rcred">Richards et al Nature Neuroscience 2019</p>
 				<ul>
 					<li> Either implicitly or explicitly, many learning rules use gradient information to optimize their weights
 					<li> Vary according to their bias and variance
+						<li>Backpropagation the standard for challenging ML problems</li>
 				</ul>
 			</div>
 				<aside class="notes">
@@ -591,7 +637,7 @@
 			  </aside>	</section>	  
 
 			  <section data-background-color="#ffffff">
-				<h2>Learning rules that scale to larger problems</h2>
+				<h2>How to scale to large problems?</h2>
 				<div>
 				<img src="assets/learningrules.png" width="60%">
 				<p class="rcred">Richards et al Nature Neuroscience 2019</p>
@@ -610,7 +656,7 @@
 			  </aside>	</section>	  
 
 			  <section data-background-color="#ffffff">
-				  <h2>Learning rules that scale to larger problems</h2>
+				  <h2>How to scale to large problems?</h2>
 				  <div id = "left">
 					  <ul>
 						<li>Is this plausible?</li>
@@ -618,9 +664,11 @@
 						<li> Cortical structure has both feedforward and feedback connections
 					  <li> Pyramidal neurons contain both apical and basal compartments, allowing for separate sites of integration (Kording and Konig 2001, Guergiuev et al 2017)
 					</ul>
-						<li>Does this help?</li>
+						<li>When does feedback help?</li>
 					</ul>
-					$\Rightarrow$ Investigate in the setting of artificial neuron networks
+					<div class = "fragment">$\Rightarrow$ Investigate in the setting of artificial neuron networks
+
+					</div>
 				</div>
 				  <div id = "right">
 				  <img src="assets/cortex_schematic.png" width="80%">
@@ -638,10 +686,14 @@
 					<h2>Biologically implausible backpropagation</h2>
 					<div id = "left">
 					<ul>
-						<li> The gradient algorithm, backpropagation, suggests one form of such a network
+						<li> The gradient algorithm, backpropagation, suggests one form of such a network:
+							$$
+							\mathbf{e}^i =\left((W^{i+1})^\mathsf{T} \mathbf{e}^{i+1}\right)\circ \sigma'(W^{i}\mathbf{h}^{i-1})
+							$$
+						with $\frac{\partial R}{\partial \mathbf{h}^i} = (W^{i+1})^T \mathbf{e}^{i+1}$
 						<li> Low bias, low variance &ndash; 'the workhorse of deep learning' 
 						<li> But weights of this network would be transpose of the feedforward weights &ndash; e.g. require weight transport
-					</ul>
+						</ul>
 					</div>
 					<div id = "right">
 					<img src="assets/fig1_schematic_bp.svg" width="63%">
@@ -660,12 +712,11 @@
 				 <ul>
 					<li>Weight transport can be avoided by using random, fixed feedback weights, $B_i$ &ndash; feedback alignment
 					<li> Works on small fully-connected networks
-						<li> Suggests high-dimensional error signals help, even if very biased
-						</ul>
-					But:
-					<ul>
 						<li> Doesn't work on deep networks, CNNs, networks with bottleneck layers
-				  </ul>
+						</ul>
+					<div class = "fragment">
+						Suggests high-dimensional error signals help, even if very biased
+					</div>
 				  <p class="fragment">$\Rightarrow$ Can we improve on feedback alignment by learning weights $B_i$?</p>
 					</div>
 				  <div id = "right">
@@ -689,10 +740,10 @@
 				  \hat{\lambda}^i = (\tilde{\mathcal{L}}(\mathbf{x},\mathbf{y},\xi)-\mathcal{L}(\mathbf{x},\mathbf{y})) \frac{\xi^i}{c_h} \approx \frac{\partial \mathcal{L}}{\partial \mathbf{h}^i}
 				  \end{equation*}
 				  Train feedback network to provide a useful error signal:
-				  \begin{equation}
+				  $$\begin{equation}
 				  \label{eq:lsq}
 				  \hat{B}^{i+1} = \text{argmin}_{B} \mathbb{E}\left\| B^T\mathbf{e}^{i+1} - \hat{\lambda^i} \right\|_2^2
-				  \end{equation}
+				  \end{equation}$$
 				  </div>
 				  <div id = "right">			
 				  <img src="assets/fig1_schematic_np.svg" width="85.5%">
@@ -702,10 +753,35 @@
 				  • <span style="color: green"></span>
 				</aside>	</section>
 
+				<section data-background-color="#ffffff">
+					<h2>Learning feedback weights with perturbations</h2>
+					<div id = "left">
+					Update $B$ according to
+					$$
+						\Delta B^i \propto (B^T\mathbf{e}^{i+1} - \hat{\lambda}^i)(\mathbf{e}^{i+1})^T
+					$$ 
+					where 
+					$$
+					\mathbf{e}^i =\left((B^{i+1})^\mathsf{T} \mathbf{e}^{i+1}\right)\circ \sigma'(W^{i}\mathbf{h}^{i-1})
+					$$
+
+					Update $W$ according to
+					$$
+					\Delta W^i \propto (\mathbf{e}^i)^T\mathbf{h}^{i-1}
+					$$
+					</div>
+					<div id = "right">			
+					<img src="assets/fig1_schematic_np.svg" width="85.5%">
+					</div>
+					<aside class="notes">
+					<span style="color: red"></span> •
+					• <span style="color: green"></span>
+				  </aside>	</section>
+
 				  <section data-background-color="#ffffff">
 				  <h2>Learning feedback weights with perturbations</h2>
 				  
-					<p>Weights in the final layer converge, in the following way</p>
+					<p>If we <em>only</em> update $B$, then weights in the final layer converge to $W$, in the following way</p>
 				  <p><em>Theorem 1:</em> The least squares estimator
 		  \begin{equation*}
 		  (\hat{B}^{N+1})^T = \hat{\lambda}^N (\mathbf{e}^{N+1})^T\left(\mathbf{e}^{N+1}(\mathbf{e}^{N+1})^T\right)^{-1},
@@ -724,7 +800,7 @@
 				<section data-background-color="#ffffff">
 					<h2>Learning feedback weights with perturbations</h2>
 
-					<p>Weights in all layers converge, for a linear network</p>
+					<p>If we <em>only</em> update $B$, then weights in all layers converge to $W$, for a linear network</p>
 			<p><em>Theorem 2:</em> For $\sigma(x) = x$, the least squares estimator
 				$$
 			\begin{equation*}
@@ -852,11 +928,6 @@
 					<li> Ivana Milovanovic (UW)</li>
 					<li> Cooper Mellema (UT Austin)</li>
 					<li> Eberhard Fetz (UW)</li>
-					<li> Sofia Triantafilou (UPitt) </li>
-					<li> J Nathan Kutz (UW)</li>
-					<li> Kevin Ford (UC Berkeley)</li>
-					<li> David Kleinfeld (UCSD)</li>
-					<li> Yonatan Aljadeff (ICL)</li>
 					</ul>
 						</div>
 					<aside class="notes">
