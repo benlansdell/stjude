@@ -35,7 +35,7 @@
 				<section data-background="assets/brainbow2.jpg">
 					<h1>The neuronal credit assignment problem as causal inference</h1>
 				<hr>
-				<p style="text-align: center; font-size: larger; text-shadow: 0px 0px 0px #0000ff;">Ben Lansdell, Bioengineering UPenn<br><br>Western University. February 13th 2020
+				<p style="text-align: center; font-size: larger; text-shadow: 0px 0px 0px #0000ff;">Ben Lansdell, Bioengineering UPenn<br><br>Drexel University. February 27th 2020
 				<aside class="notes">
 				  <span style="color: red">
 				  </span> •		  
@@ -251,6 +251,12 @@
 				  </div>
 				</div>
 				What are the synaptic update rules used by neurons that provide efficient and flexible learning?
+				<p>Must:
+				<ul>
+					<li>Be consistent with known neurophysiology</li>
+					<li>Be good enough at learning complicated tasks</li>
+				</ul>
+				</p>
 				<aside class="notes">
 				  <span style="color: red"></span> •
 				  • <span style="color: green"></span>
@@ -262,8 +268,8 @@
 				<img src="assets/spiketrain.svg" width="80%">
 				<p><br>In spiking neural networks, this means something like:</p>
 				<ul>
-					<li> If, for a given input, a spike <b>increases</b> the reward, the weights leading to that spike should <b>decrease</b>
-					<li> If, for a given input, a spike <b>decreases</b> the reward, the weights leading to that spike should <b>increase</b>
+					<li> If, for a given input, a spike <b>increases</b> the reward, the weights leading to that spike should <b>increase</b>
+					<li> If, for a given input, a spike <b>decreases</b> the reward, the weights leading to that spike should <b>decrease</b>
 				</ul>
 				</aside></section>
 		  
@@ -348,11 +354,11 @@
 				<h2>Credit assignment as causal inference</h2>
 				<p>One solution: Randomization</p>
 
-				<p>If independent (unconfounded) noise is added to the system, this can be correlated with reward for an estimate of loss gradients</p>
+				<p>If independent (unconfounded) noise is added to the system, this can be correlated with reward for an estimate of its reward gradient</p>
 
-				<p>In fact, the REINFORCE algorithm correlates reward with independent pertubations in activity, $\xi$:
+				<p>In fact, the REINFORCE algorithm correlates reward with independent pertubations in activity, $\xi^i$:
 					$$
-					\mathbb{E}( R\xi ) \approx \sigma^2 \frac{\delta R}{\delta h}
+					\mathbb{E}( R\xi^i ) \approx \sigma^2 \frac{\delta R}{\delta h^i}
 					$$</p>
 				<div class="fragment">
 				<p>But:</p>
@@ -454,7 +460,7 @@
 
 			<section data-background-color='#ffffff'>
 				<h2>A small demonstration</h2>
-				<p>In cases where a correlational estimator fails</p>
+				<p>Works in cases where a correlational estimator fails</p>
 				$$\beta = \mathbb{E}(R|H\leftarrow 1) - \mathbb{E}(R|H\leftarrow 0), \quad \beta_{OD} = \mathbb{E}(R|H=1) - \mathbb{E}(R|H=0)$$
 				<img src="assets/fig2a_lossland.svg" width="85%">
 		
@@ -490,11 +496,11 @@
 			<section data-background-color='#ffffff'>
 				<h2>A larger example</h2>
 				<div>
-					<p>Reward function trains one neuron to have different firing rate from rest of population</p>
+					<p>Reward/cost function trains one neuron to have different firing rate from rest of population</p>
 				<img src="assets/biofeedback2.svg" width="45%">
 				<ul>
 					<li> Performance and learning curve independent of noise correlations
-					<li> RDD-trained network learns more quickly which neuron is the special
+					<li> RDD-trained network learns more quickly which neuron is special
 				</ul>
 			</div>
 		
@@ -664,10 +670,12 @@
 						<li> Cortical structure has both feedforward and feedback connections
 					  <li> Pyramidal neurons contain both apical and basal compartments, allowing for separate sites of integration (Kording and Konig 2001, Guergiuev et al 2017)
 					</ul>
-						<li>When does feedback help?</li>
+						<li>How much feedback is needed?</li>
 					</ul>
-					<div class = "fragment">$\Rightarrow$ Investigate in the setting of artificial neuron networks
-
+					<div class = "fragment">$\Rightarrow$ Investigate in the setting of artificial neuron networks:
+						$$
+						\mathbf{h}^i = \sigma(W^i\mathbf{h}^{i-1})
+						$$
 					</div>
 				</div>
 				  <div id = "right">
