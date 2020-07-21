@@ -32,7 +32,7 @@
 		<div class="reveal">
 			<div class="slides">
 
-				<section data-background="assets/brain2_highlight.png">
+				<section data-background="assets/brain2_darkest.png">
 					<h1>The neuronal credit assignment problem as causal inference</h1>
 				<hr>
 				<p style="text-align: center; font-size: larger; text-shadow: 0px 0px 0px #0000ff;">Ben Lansdell, Bioengineering UPenn<br><br>St Jude Children's Research Hospital<br>July 22nd 2020
@@ -45,16 +45,16 @@
 				  It's nice to have the chance to present something about my research,
 				  even if remotely.
 
-				  I'm going to talk today about my work during my postdoc at Penn, I'll have just 
+				  I'm going to talk today about my work during my postdoc at here Penn, I'll have just 
 				  time to give just an overview, and to describe one project in some detail.
 
 				  In the end I'll describe a couple of other projects I've spent time on 
-				  that mnay be of interest.
+				  that may be of interest to people here.
 
 				  So, my postdoctoral work has focused largely on thinking about causality in 
-				  neuroscience. 
+				  neuroscience and machine learning. 
 
-				  So I'll start just by giving an overview of why I think that's an interesting question. 
+				  So I'll start just by giving an overview of why I think that's an interesting area. 
 
 				  Background photo credit: 
 				  Confocal micrograph of hippocampal interneurons that express serotonin receptors (green) co-labeled in red for calretinin, and counterstained with DAPI (blue), a marker of cell nuclei. Credit: Margaret I. Davis
@@ -82,14 +82,13 @@
 		<span style="color: red"></span> •
 		-------------- 
 
-		Arguably, most scientific theories demand causal explanations. We want to know what mechanism is behind some behavior or phenomenon. What it really means for some mechanism to be behind some behavior of phenomenon of interest is that we have an understanding of when we tweak some part of the underlying system, we can predict what the effect will be on the behavior of interest. This involves understanding the causal relationships at play. To that end, often in neuroscience, and biology: 
+		Arguably, most scientific theories demand causal explanations. We want to know what mechanism is behind some behavior or phenomenon of interest. So in neuroscience, we want to know how patterns of neuronal activity produces a behavior, such as swimming, as in this image here with a zebrafish larvae. What it really means for some mechanism to be responsible for some behavior of interest is that we have an understanding of, when we tweak some part of the underlying system, we can predict what the effect will be on the behavior of interest. The better we can do this, the more robust our understanding. This, almost by definition, involves understanding the causal relationships at play.
 		
-		we want to know how something will behave under different interventions, make predictions, know how to achieve some desired goal using this predictive information -- this all requires knowing the causal relationships in a system. 
+		Causal relationships are hard won in biology, and neuroscience is definitely no exception. 
 
-		Causality is hard won in biology, and neuroscience is definitely no exception. 
+		It is hard to establish how one brain region, or even how one neuron, has a causal effect on some behavior, or 
+		some other neuron or brain region. This is really challenging for a number of reasons:
 
-		It is hard to establish one brain region, or even one neuron, has a causal effect on some behavior, or 
-		some other neuron or brain region for a number of reasons:
 		* complicated feedback dynamics (with environment, and within the nervous system)
 		* hard to control 
 		* hard to fully observe
@@ -97,14 +96,6 @@
 	   
 		All of these things make determining causal relationships difficult
 		
-		I won't talk about this today, but my reseach spans computational neuroscience and 
-
-		My research has focused on the following claim: that explicitly casting problems as causal learning problems 
-
-		------  
-
-		To that end, I'll here discuss what is known as the credit assignment problem, one that arises in models of learning in neural circuits. 
-
 		• <span style="color: green"></span>
 	  </aside>	</section>
 
@@ -159,14 +150,14 @@
 	</div>
 	<aside class="notes">
 	<span style="color: red"></span> •
-		So, given this overlap, when we think about challenges in both machine learning, and neuroscience. In this talk I wish to make the point that a number of these in fact relate to causation. 
+		I won't touch on this much today, but just to describe the other side of my research, it is the case that causation also relates to a number of challenges in machine learning today. 
 
-		[Explain chocolate example, and how it doesn't say anything about how we might use this relationship to control or change the system to some desired outcome. Yet most recent advances in AI and ML are based on building better predicted models. ]
+		It's fair to say that a lot of recent advances in machine learning stem from building better predictive models. They find correlations in data, but are in general blind to the causal structure underlying such relations. For instance, there's many examples I could have chosen for this plot on the left, but if, we plot the number of nobel prizes awarded for a country, per capita vs the chocolate consumption per capita, we observe a strong positive relationship. But this of course doesn't tell us there is a causal relationship. If we were to go and make interventions, and make some country consume more chocolate, that of course doesn't mean we would expect to see an increase in Nobel prizes. Such models can be completely ignorant of the causal processes underlying.
 
-		This has a number of important consequences:
-		* causal models are more robust to changes in the environment. This means that we should expect learning causal models to be more generalizable to other environments, distributions, etc, and this means it doesn't have to start from scratch in every new task you're interested in -- causal models can be more data efficient
-		* strong associations need not be causal, and making policy decisions based on associations may be biased, prejudiced, or unfair -- 
-		* another way to phrase this is that observational data may not say what happens when we change the system, and thus there are no safey guarantees about what happens when you do change things. 
+		This relates to challenges in machine learning right now:
+		* some ML models can take millions of datapoints to work well, this is in part because such models are very specific to a particular problem.  model trained on one problem does not generalize to others very well. Causal models, in contrast, are more robust to changes in the environment. This means that we should expect learning causal models to be more generalizable to other environments, distributions, etc, and this means it doesn't have to start from scratch in every new task you're interested in -- causal models can be more data efficient
+		* It relates to issues of fairness. Strong associations need not be causal, and making policy decisions based on associations may be biased, prejudiced, or unfair. 
+		* And it relates to safety. Another way to phrase this is that observational data may not say what happens when we change the system, and thus there are no safey guarantees about what happens when you do change things. 
 
 		These are some of the key challenges facing machine learning today. 
 	• <span style="color: green"></span>
@@ -190,7 +181,7 @@
 	</div>
 	<aside class="notes">
 	<span style="color: red"></span> •
-		* The claim I will present in this talk is that progress in both machine learning and neuroscience can come from explicitly casting problems as causal learning problems, and applying existing causal learning methods to problems in machine learning and neuro 
+		* So the idea I have been interested in is that: progress in both neuro and ML can come from explicitly casting problems as causal learning problems.  
 	• <span style="color: green"></span>
   </aside>	</section>
 
@@ -204,6 +195,8 @@
 			</div>
 			<aside class="notes">
 			<span style="color: red"></span> •
+
+			So we'll see how this plays out in this credit assignment problem. This problem arises when we think about models of learning in the brain. So, we have a neuron embedded in some network, learning some task, and we want to know what are learning models that provide an account of how we learn things efficiently. 
 			• <span style="color: green"></span>
 		  </aside>	</section>
 
@@ -219,11 +212,9 @@
 
 		  <aside class="notes">
 			<span style="color: red"></span> •
-			Ok, so what do I mean by the credit assignment problem?
 			
-			This problem occurs in learning. The important thing to keep in when studying learning, either in the brain or in machines, is that learning is a normative activity -- there is a sense of better or worse, of improvement. So that, in machine learning we formalize this as a loss function, or as expected future reward in RL, and study how the system can or should act to minimize this loss function.
+			We can formalize this as follows. The idea is we have a network characterized by some state, some set of synaptic weight parameters w. Different weights will correspond to different responses given some stimulus. We assume that there is some measure of performance, and the process of learning is one of finding parameters w that optimize this performance. We will also say minimize a loss function, or maximize some reward function. For the purposes of this talk, we can think of these things as interchangable. 
 
-			We'll use the framework to study this question. We'll have a loss function R. We'll think of training a deep neural network with N hidden layers, and we'll aim to find the network parameters W that minimize the expected loss. 
 			• <span style="color: green"></span>
 		  </aside>	</section>
 
@@ -237,14 +228,15 @@
 				  </div>
 				</div>
 				What are the synaptic update rules used by neurons that provide efficient and flexible learning?
-				<p>Must:
+				<p>Must be:
 				<ul>
-					<li>Be consistent with known neurophysiology</li>
-					<li>Be good enough at learning complicated tasks</li>
+					<li>consistent with known neurophysiology</li>
+					<li>good enough at learning complicated tasks</li>
 				</ul>
 				</p>
 				<aside class="notes">
 				  <span style="color: red"></span> •
+				  So the question is, what are the synaptic update rules, f, that provide efficient and flexible learning? 
 				  • <span style="color: green"></span>
 				</aside>	</section>
 		  
@@ -257,6 +249,12 @@
 					<li> If, for a given input, a spike <b>increases</b> the reward, the weights leading to that spike should <b>increase</b>
 					<li> If, for a given input, a spike <b>decreases</b> the reward, the weights leading to that spike should <b>decrease</b>
 				</ul>
+				<aside>
+					<span style="color: red"></span> •
+					If we think about what basic properties such a rule must satisfy. The rule must in some way incorporate the effect the neuron is having on the network's output. 
+					[explain figure]
+					How a neuron measures this effect is known as the credit assignment problem. 
+					• <span style="color: green"></span>
 				</aside></section>
 		  
 		  <!-- ---------------------------------------------------------------------- -->
@@ -545,7 +543,7 @@
 			  </aside>
 			</section>
 
-			<section>
+			<section data-background-color="#ffffff">
 				<h2>Why spike?</h2>
 				<ul>
 					<li> Neurons need to communicate over large distances
@@ -554,7 +552,7 @@
 					<video class="slideautostart" src="assets/chris_paper_S1.ogv" muted controls loop autoplay
 					poster="assets/CorticalFOV.png" width="45%">
 					</video>
-					<p class="rcred">Calcium imaging in Hydra. Dupre and Yuste 2017 (Can load benlansdell.github.io/stjude for the video)</p>
+					<p class="rcred">Calcium imaging in Hydra. Dupre and Yuste 2017 (Video here: benlansdell.github.io/stjude/#/23)</p>
 					</div>
 					<ul class = "fragment">
 					<li> But computationally, a spiking discontinuity is inconvenient for learning
@@ -570,7 +568,7 @@
 			  </aside>
 			</section>
 
-			  <section data-background="assets/brain2_darker.png">
+			  <section data-background-color="#ffffff">
 				  <h2>Summary</h2>
 				  <ul>
 					<li> RDD can be used to estimate causal effects, and can provide a solution to the credit assignment problem in spiking neural networks
@@ -593,15 +591,16 @@
 		  <!-- ---------------------------------------------------------------------- -->
 		  <!-- ---------------------------------------------------------------------- -->
 		  
-
 		  <section data-background-color="#ffffff">
 			<h2>Related work</h2>
 			<div id="left">
 				<ul>
 					<li> Using causal effect estimators to train large artificial neural networks
-						Lansdell et al, 'Learning to solve the credit assignment problem', ICLR 2020 
-					<li> Dual-control brain computer interfaces
-					<li> Behavioral analysis and neuron tracking in Hydra
+						<p class="lcred">Lansdell et al, 'Learning to solve the credit assignment problem', ICLR 2020 </p>
+					<li> Primary motor activity supporting dual-control brain computer interfaces<br>
+						<p class="lcred">Lansdell et al, 'Reconfiguring motor circuits for a joint manual and BCI task', IEEE Trans. Neural Systems and Rehabilitation Engineering 2020</p>
+					<li> Behavioral analysis and neuron tracking in the cnidarian Hydra<br>
+						<p class="lcred">(in progress)</p>
 				</ul>
 				</div>
 				<div id="right">
@@ -613,11 +612,75 @@
 		  </aside>
 		</section>
 
-		  <!-- ---------------------------------------------------------------------- -->
+		  <section data-background-color="#ffffff">
+			<h2>Related work</h2>
+			<div id="left">
+				<ul>
+					<li style="color:red"> Using causal effect estimators to train large artificial neural networks
+						<p class="lcred">Lansdell et al, 'Learning to solve the credit assignment problem', ICLR 2020 </p>
+					<li> Primary motor activity supporting dual-control brain computer interfaces<br>
+						<p class="lcred">Lansdell et al, 'Reconfiguring motor circuits for a joint manual and BCI task', IEEE Trans. Neural Systems and Rehabilitation Engineering 2020</p>
+					<li> Behavioral analysis and neuron tracking in the cnidarian Hydra<br>
+						<p class="lcred">(in progress)</p>
+				</ul>
+				</div>
+				<div id="right">
+				<img src="assets/fig1_schematic_np.svg" width="85.5%">
+				</div>
+		  <aside class="notes">
+			<span style="color: red"></span> •
+			• <span style="color: green"></span>
+		  </aside>
+		</section>
+
+		<section data-background-color="#ffffff">
+			<h2>Related work</h2>
+			<div id="left">
+				<ul>
+					<li> Using causal effect estimators to train large artificial neural networks
+						<p class="lcred">Lansdell et al, 'Learning to solve the credit assignment problem', ICLR 2020 </p>
+					<li style="color:red"> Primary motor activity supporting dual-control brain computer interfaces<br>
+						<p class="lcred">Lansdell et al, 'Reconfiguring motor circuits for a joint manual and BCI task', IEEE Trans. Neural Systems and Rehabilitation Engineering 2020</p>
+					<li> Behavioral analysis and neuron tracking in the cnidarian Hydra<br>
+						<p class="lcred">(in progress)</p>
+				</ul>
+				</div>
+				<div id="right">
+				<img src="assets/bci.png" width="80%">
+				</div>
+		  <aside class="notes">
+			<span style="color: red"></span> •
+			• <span style="color: green"></span>
+		  </aside>
+		</section>
+
+		<section data-background-color="#ffffff">
+			<h2>Related work</h2>
+			<div id="left">
+				<ul>
+					<li> Using causal effect estimators to train large artificial neural networks
+						<p class="lcred">Lansdell et al, 'Learning to solve the credit assignment problem', ICLR 2020 </p>
+					<li> Primary motor activity supporting dual-control brain computer interfaces<br>
+						<p class="lcred">Lansdell et al, 'Reconfiguring motor circuits for a joint manual and BCI task', IEEE Trans. Neural Systems and Rehabilitation Engineering 2020</p>
+					<li style="color:red"> Behavioral analysis and neuron tracking in the cnidarian Hydra<br>
+						<p class="lcred">(In progress)</p>
+				</ul>
+				</div>
+				<div id="right">
+				<video class="slideautostart" width="90%" src="assets/hydra_trimmed.mp4" muted controls loop autoplay></video>
+				<p class="rcred">(Video: benlansdell.github.io/stjude/#/27)</p>
+			</div>
+		  <aside class="notes">
+			<span style="color: red"></span> •
+			• <span style="color: green"></span>
+		  </aside>
+		</section>
+
+		<!-- ---------------------------------------------------------------------- -->
 		  <!-- ---------------------------------------------------------------------- -->
 		  <!-- ---------------------------------------------------------------------- -->
 
-		  <section data-background-image="./assets/brain2_darker.png">
+		  <section data-background-image="./assets/brain2_darkest2.png">
 			<h2>References</h2>
 				<hr>
 			<ul style="font-size: smaller">
@@ -634,7 +697,7 @@
 			</aside>
 		  </section>
 
-		  <section data-background-image="./assets/brain2_darker.png">
+		  <section data-background-image="./assets/brain2_darkest2.png">
 				<h2>Acknowledgments</h2>
 					<hr>
 				<div id="left">
@@ -678,29 +741,6 @@
 				<aside class="notes">
 				  <span style="color: red"></span> •
 				  The idea is that it should only estimate the effect on a reward signal for inputs that place the neuron close to threshold. Over a fixed time window, we have a set of below-threshold inputs, marginally below, marginally above, and above. The idea is that neuron's should only update their estimate of beta for the marginal inputs, and that is a way of isolating that neuron's specific effect on reward. 
-				  • <span style="color: green"></span>
-				</aside>
-			  </section>
-		  
-			  <section data-background-color='#ffffff'>
-				  <h2>Is this plausible?</h2>
-					  <ul> <li> Consistent with:
-						  <ul>
-						  <li> current models of sub-threshold dependent plasticity
-						  <li> current models of neuromodulator dependent plasticity</ul>
-					  </ul>
-				  <img src="assets/fig5a.svg" width="55%">
-					  <!-- <ul class="fragment">
-						  <li> Additionally would predict super-threshold dependent plasticity
-					  </ul>-->
-		  
-				<aside class="notes">
-				  <span style="color: red"></span> •
-				  Of course, we can ask if it is realistic for a neuron to do something like RDD-based learning? In fact, there are two components to the model really. The first is the only learning for inputs that plcae the neuron close to threshold. This is in part already established under something called sub-threshold dependent plasticity. Inputs that place a neuron too far below threhsold induce no learning, consistent with RDD. The model would additionally predict that very high super threshold inputs also induce no learning, but this hasn't been explicitly tested yet. 
-		  
-				  The other part of the model is the reward dependent component, in which the sign of the update switches with the magnitude of the reward signal. This has been established in some cases, but more experiments are also needed. Here the blue and red curves show the sign of the changes to weights for different neuromodulator concentrations, showing things can turn from potentiating (increasing) to depressing (decreasing). 
-		  
-				  Thus both aspects are largely consistent with neurobiology. 
 				  • <span style="color: green"></span>
 				</aside>
 			  </section>
