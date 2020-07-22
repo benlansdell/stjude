@@ -82,25 +82,10 @@
 		<span style="color: red"></span> •
 		-------------- 
 
-		Arguably, most scientific theories demand causal explanations. We want to know what mechanism is behind some behavior or phenomenon of interest. So in neuroscience, we want to know how patterns of neuronal activity produces a behavior, such as swimming, as in this image here with a zebrafish larvae. What it really means for some mechanism to be responsible for some behavior of interest is that we have an understanding of, when we tweak some part of the underlying system, we can predict what the effect will be on the behavior of interest. The better we can do this, the more robust our understanding. This, almost by definition, involves understanding the causal relationships at play.
-		
-		Causal relationships are hard won in biology, and neuroscience is definitely no exception. 
-
-		It is hard to establish how one brain region, or even how one neuron, has a causal effect on some behavior, or 
-		some other neuron or brain region. This is really challenging for a number of reasons:
-
-		* complicated feedback dynamics (with environment, and within the nervous system)
-		* hard to control 
-		* hard to fully observe
-		* high dimensional 
-	   
-		All of these things make determining causal relationships difficult
+		Arguably, most scientific theories involve causal explanations. We want to know what mechanism is behind some behavior or phenomenon of interest. So in neuroscience, we want to know how patterns of neuronal activity produces a behavior, such as swimming, as in this example here with a zebrafish larvae. What it really means for some mechanism to be responsible for some behavior of interest is that we have an understanding of, when we tweak some part of the underlying system, we can predict what the effect will be on the behavior of interest. The better we can do this, the more robust our understanding. This, almost by definition, involves understanding the causal relationships at play.
 		
 		• <span style="color: green"></span>
 	  </aside>	</section>
-
-<!-- Slide about causality-->
-
 
   <section data-background-color="#000000">
 	<h2>Causality in neuroscience</h2>
@@ -123,9 +108,17 @@
 	</div>
 	<aside class="notes">
 	<span style="color: red"></span> •
-	In neuroscience, we generally seek a mechanistic, or causal model, of a system. Yet, only recently have we begun to have good enough experimental tools to do that. Even with current methods, it's generally the case that neural data is hugely undersample, which can introduce confounding, and this makes intepreting relationships in neural data difficult. 
+	Causal relationships are hard won in biology, and neuroscience is definitely no exception. 
 
-	More generally, when we think about the tasks that neuronal networks perform, some of the same issues relate: how do we learn transferable models of the world, and how does this relate to learning causal relationships between our own actions and the world, and between other objects in the world?
+	It is hard to establish how one brain region, or even how one neuron, has a causal effect on some behavior, or 
+	some other neuron or brain region. This is really challenging for a number of reasons:
+
+	* complicated feedback dynamics (with environment, and within the nervous system)
+	* hard to control 
+	* hard to fully observe
+	* high dimensional 
+   
+	Technology is changing this picture somewhat, and our ability to perturb a system, and to observe more of it is changing. This means we do have greater ability to draw causal conclusions, if we have the right theoretical tools. 
 	• <span style="color: green"></span>
   </aside>	</section>
 
@@ -181,7 +174,7 @@
 	</div>
 	<aside class="notes">
 	<span style="color: red"></span> •
-		* So the idea I have been interested in is that: progress in both neuro and ML can come from explicitly casting problems as causal learning problems.  
+		* So the idea I have been interested in is that issues of causal inference are central to both machine learning and neuroscience. And therefore that progress in both neuro and ML can come from explicitly casting problems as causal learning problems.  
 	• <span style="color: green"></span>
   </aside>	</section>
 
@@ -196,7 +189,7 @@
 			<aside class="notes">
 			<span style="color: red"></span> •
 
-			So we'll see how this plays out in this credit assignment problem. This problem arises when we think about models of learning in the brain. So, we have a neuron embedded in some network, learning some task, and we want to know what are learning models that provide an account of how we learn things efficiently. 
+			So we'll see how this plays out in this credit assignment problem. This problem arises when we think about models of learning in the brain. So, we have a neuron embedded in some network, learning some task, and we want to know how a neuron should change its synaptic weights to do so? 
 			• <span style="color: green"></span>
 		  </aside>	</section>
 
@@ -249,7 +242,7 @@
 					<li> If, for a given input, a spike <b>increases</b> the reward, the weights leading to that spike should <b>increase</b>
 					<li> If, for a given input, a spike <b>decreases</b> the reward, the weights leading to that spike should <b>decrease</b>
 				</ul>
-				<aside>
+				<aside class="notes">
 					<span style="color: red"></span> •
 					If we think about what basic properties such a rule must satisfy. The rule must in some way incorporate the effect the neuron is having on the network's output. 
 					[explain figure]
@@ -287,7 +280,7 @@
 				</ul>	    
 			  <aside class="notes">
 				  <span style="color: red"></span> •
-					To keep going I need to make the idea of a causal relationship a bit more precise. What do I mean by a causal relationship? This is, in stats at least, normally defined in terms of interventions of counter factuals. By intervention we mean something that effects the value of one variable. In essence, we force a given variable to take a given value, and erase any relationship it may have previously had with its potential causes. 
+					To keep going I need to make the idea of a causal relationship a bit more precise. What do I mean by a causal relationship? This is, in stats at least, normally defined in terms of interventions of counter factuals. By intervention we mean something that affects the value of one variable. In essence, we force a given variable to take a given value, and erase any relationship it may have previously had with its potential causes. 
 
 					So here, we force neuron 1 to take on a given value, regardless of what neuron 2 is doing. We can see this actually allows us to now distinguish between the two graphs. We can say through interventions if neuron 1 has a direct effect on reward or not. 
 
@@ -479,10 +472,11 @@
 		  
 			<section data-background-color='#ffffff'>
 				<h2>A larger example</h2>
+				<p>RDD-based method has lower error for all but uncorrelated inputs</p>
 				<div>
-					<img src="assets/fig_7.png" width="60%">
+					<img src="assets/fig_7.png" width="80%">
 					<!-- Scaling with network size and depth-->
-			</div>
+				</div>
 		
 			  <aside class="notes">
 				<span style="color: red"></span> •
@@ -538,6 +532,8 @@
 		
 				The other part of the model is the reward dependent component, in which the sign of the update switches with the magnitude of the reward signal. This has been established in some cases, but more experiments are also needed. Here the blue and red curves show the sign of the changes to weights for different neuromodulator concentrations, showing things can turn from potentiating (increasing) to depressing (decreasing). 
 		
+				(cholinergic and adrenergic neuromodulation)
+
 				Thus both aspects are largely consistent with neurobiology. 
 				• <span style="color: green"></span>
 			  </aside>
@@ -608,6 +604,15 @@
 				</div>
 		  <aside class="notes">
 			<span style="color: red"></span> •
+			Ok, so I've discussed one project that fits into this theme of causal inference ideas applied to problems in neuroscience. Before finishing I'll just briefly mention some other work. 
+
+			First, I presented a paper (virtually) at one of the larger CS conferences this year (ICLR) on using this perturbation, or randomization, strategy to solve the credit assignment problem in artificial neural networks. The method lets us train large networks in a more biologically plausible way in a way that the error doesn't scale linearly with the number of neurons in the network, which was the result I showed in this talk. The extension to use RDD instead of perturbations as the causal inference method is current work. 
+
+			Second I'll just mention two data-based projects I have worked or am working on. I mention these because I think of these projects as bringing up some of the other issues to do with causality I mentioned at the start of the talk. 
+
+
+
+
 			• <span style="color: green"></span>
 		  </aside>
 		</section>
@@ -733,33 +738,6 @@
 		  <!-- ----------------------------------------------------------------------- -->
 		  <!-- ----------------------------------------------------------------------- -->
 		  
-			  <section data-background-color='#ffffff'>
-				<h2>RDD as a way for a neuron to solve credit assignment</h2>
-				  <img src="assets/rdd_fig1b.svg" width="80%">
-				  <p class="rcred">Lansdell and Kording, bioRxiv 2019</p>
-		  
-				<aside class="notes">
-				  <span style="color: red"></span> •
-				  The idea is that it should only estimate the effect on a reward signal for inputs that place the neuron close to threshold. Over a fixed time window, we have a set of below-threshold inputs, marginally below, marginally above, and above. The idea is that neuron's should only update their estimate of beta for the marginal inputs, and that is a way of isolating that neuron's specific effect on reward. 
-				  • <span style="color: green"></span>
-				</aside>
-			  </section>
-		  
-			  <section data-background-color='#ffffff'>
-				  <h2>How to test?</h2>
-					  <ul>
-						  <li> Over a fixed time window a reward is administered when neuron spikes
-						  <li> Stimuli are identified which place the neuron's input drive close to spiking threshold. 
-						  <li> RDD-based learning predicts an increase synaptic changes for a set of stimuli containing a high proportion of near threshold inputs, but that keeps overall firing rate constant.
-					  </ul>
-				  <img src="assets/fig5b.svg" width="55%">
-		  
-				<aside class="notes">
-				  <span style="color: red"></span> •
-				  How would we test RDD-based learning? One idea would be [idea]
-				  • <span style="color: green"></span>
-				</aside>
-			  </section>
 			</div>
 		</div>
 
